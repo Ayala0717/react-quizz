@@ -13,6 +13,8 @@ import { gradientDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 import { useQuestionStore } from '../../store/questions'
 
+import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material'
+
 import { type Question as QuestionType } from '../../types'
 
 const getBackgroundColor = (info: QuestionType, answerIndex: number) => {
@@ -66,16 +68,36 @@ const Question = ({ info }: { info: QuestionType }) => {
 }
 
 export const Game = () => {
-  const [questions, currentQuestion] = useQuestionStore((state) => [
-    state.questions,
-    state.currentQuestion,
-  ])
+  const [questions, currentQuestion, goNextQuestion, goPrevQuestion] =
+    useQuestionStore((state) => [
+      state.questions,
+      state.currentQuestion,
+      state.goNextQuestion,
+      state.goPrevQuestion,
+    ])
 
   const questionInfo = questions[currentQuestion]
 
   return (
     <>
-      <Question info={questionInfo} />
+      <Stack
+        direction='row'
+        gap={2}
+        alignItems='center'
+        justifyContent='center'
+      >
+        <IconButton onClick={goPrevQuestion} disabled={currentQuestion === 0}>
+          <ArrowBackIosNew />
+        </IconButton>
+        {currentQuestion + 1} / {questions.length}
+        <IconButton
+          onClick={goNextQuestion}
+          disabled={currentQuestion >= questions.length - 1}
+        >
+          <ArrowForwardIos />
+        </IconButton>
+        <Question info={questionInfo} />
+      </Stack>
     </>
   )
 }
