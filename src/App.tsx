@@ -8,8 +8,6 @@ import { Container, Stack, Typography } from '@mui/material'
 function App() {
   const questions = useQuestionStore((state) => state.questions)
 
-  console.log(questions)
-
   return (
     <main>
       <Container>

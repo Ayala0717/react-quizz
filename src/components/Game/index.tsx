@@ -24,11 +24,11 @@ const getBackgroundColor = (info: QuestionType, answerIndex: number) => {
   if (userSelectedAnswer == null) return 'transparent'
 
   if (correctAnswer != answerIndex && userSelectedAnswer === answerIndex)
-    return 'transparent'
+    return 'red'
 
   if (correctAnswer === answerIndex) return 'green'
 
-  if (userSelectedAnswer === answerIndex) return 'red'
+  if (userSelectedAnswer === answerIndex) return 'transparent'
 
   return 'transparent'
 }
@@ -97,8 +97,8 @@ export const Game = () => {
         >
           <ArrowForwardIos />
         </IconButton>
-        <Question info={questionInfo} />
       </Stack>
+      <Question info={questionInfo} />
 
       <Footer />
     </>

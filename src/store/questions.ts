@@ -20,12 +20,22 @@ export const useQuestionStore = create<State>()(
         questions: [],
         currentQuestion: 0,
         fetchQuestion: async (limit: number) => {
-          const res = await fetch('https://localhost:3000/data.json')
-          const json = await res.json()
+          console.log('fetching')
 
-          const questions = json.sort(() => Math.random() - 0.5).slice(0, limit)
+          try {
+            const res = await fetch('http://localhost:4000/data.json')
+            const json = await res.json()
 
-          set({ questions })
+            const questions = json
+              .sort(() => Math.random() - 0.5)
+              .slice(0, limit)
+
+            set({ questions })
+          } catch (error) {
+            throw new Error("Couldn't fetch questions")
+          } finally {
+            console.log('fetched')
+          }
         },
         selectAnswer: (questionId: number, answerIndex: number) => {
           const state = get()

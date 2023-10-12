@@ -8,7 +8,13 @@ export const Footer = () => {
 
   return (
     <footer style={{ marginTop: '16px' }}>
-      <div style={{ marginBottom: '16px', padding: '8px' }}>
+      <div
+        style={{
+          marginBottom: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <strong>{`✅ correctas ${correctAnswers} - incorrectas ❌ ${incorrectAnswers} - ❓ sin responder ${unanswers}`}</strong>
         <Button style={{ marginTop: '8px' }} onClick={() => reset()}>
           Resetear Juego
