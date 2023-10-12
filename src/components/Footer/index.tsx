@@ -10,7 +10,9 @@ export const Footer = () => {
     <footer style={{ marginTop: '16px' }}>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
         <strong>{`✅ correctas ${correctAnswers} - incorrectas ❌ ${incorrectAnswers} - ❓ sin responder ${unanswers}`}</strong>
-        <Button onClick={() => reset()}>Resetear Juego</Button>
+        <Button style={{ marginTop: '8px' }} onClick={() => reset()}>
+          Resetear Juego
+        </Button>
       </div>
       <strong>
         Made with ❤️ by{' '}
