@@ -21,8 +21,7 @@ export const Footer = () => {
         </Button>
       </div>
       <strong>
-        Made with ❤️ by{' '}
-        <a href='https://github.com/RobertoAyala'>Roberto Ayala</a>
+        Made with ❤️ by <a href='https://github.com/Ayala0717'>Roberto Ayala</a>
       </strong>
     </footer>
   )
