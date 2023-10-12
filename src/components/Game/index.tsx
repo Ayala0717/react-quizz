@@ -16,6 +16,7 @@ import { useQuestionStore } from '../../store/questions'
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material'
 
 import { type Question as QuestionType } from '../../types'
+import { Footer } from '../Footer'
 
 const getBackgroundColor = (info: QuestionType, answerIndex: number) => {
   const { userSelectedAnswer, correctAnswer } = info
@@ -98,6 +99,8 @@ export const Game = () => {
         </IconButton>
         <Question info={questionInfo} />
       </Stack>
+
+      <Footer />
     </>
   )
 }
